@@ -6,6 +6,5 @@ void(*mydelete)(struct box p);
 struct box
 {
     BOX_DECL
-    //struct box(*create)();
 }typedef box, * pbox;
 
