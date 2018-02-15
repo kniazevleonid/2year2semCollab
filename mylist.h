@@ -1,0 +1,22 @@
+#include "box.h"
+
+struct node
+{
+    data data;
+    struct node * next;
+    struct node * prev;
+} typedef node, * pnode;
+
+struct mylist
+{
+	BOX_DECL;
+	
+	pnode head;
+	int count;
+}typedef mylist, * pmylist;
+
+void list_insert(pbox p, data d);
+
+box list_create();
+
+void list_mydelete(pbox p);
