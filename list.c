@@ -72,16 +72,21 @@ void list_delete_element(pbox p, data d)
         return;
 }
 
-pnode list_search (pbox p, data d)
+pnode list_search (pbox p, data d, int(*f)(void *, void *))
 {
         pmylist l = (pmylist)p;
         pnode tmp = l->head;
-        while(tmp != NULL)
+	pnode temp = tmp;
+        while(tmp->next != temp)
         {
-        //      if (f(tmp->data, data))
-        //              return tmp; 
+                if (f(tmp->data, data))
+                        return tmp; 
                 tmp = tmp->next;
         }
+	
+	if (f(tmp->data, data))
+                        return tmp;
+	
         return NULL;
 
 }
