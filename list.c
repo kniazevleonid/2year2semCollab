@@ -8,6 +8,7 @@ pbox create_list ()
 	p->insert = list_insert;
 	p->mydelete = list_mydelete;
 	p->search = list_search;
+	p->delete_element = list_delete_element;
 	
 	pmylist create_list = (pmylist) p;
 
@@ -73,7 +74,7 @@ void list_delete_element(pbox p, data d, int(*f)(void *, void *))
         return;
 }
 
-pnode list_search (pbox p, data d, int(*f)(void *, void *))
+void * list_search (pbox p, data d, int(*f)(void *, void *))
 {
         pmylist l = (pmylist)p;
         pnode tmp = l->head;
