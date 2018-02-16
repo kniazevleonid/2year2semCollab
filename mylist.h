@@ -20,3 +20,5 @@ void list_insert(pbox p, data d);
 pbox list_create();
 
 void list_mydelete(pbox p);
+
+pnode list_search (pbox p, data d);
