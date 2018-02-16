@@ -52,3 +52,22 @@ void list_insert(pbox p, data d)
         }
         return;
 }
+
+void list_delete_element(pbox p, data d)
+{
+        pnode tmp = list_search(p, d);
+        if(tmp == NULL)
+        {
+                printf("There is no element with such data\n");
+        }
+        else
+        {
+                (tmp->prev)->next = tmp->next;
+                (tmp->next)->prev = tmp->prev;
+                tmp->next = NULL;
+                tmp->prev = NULL;
+                free(tmp);
+        }
+        return;
+}
+
