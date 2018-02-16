@@ -7,6 +7,7 @@ pbox create_list ()
 	pbox p =(pbox)malloc(sizeof(mylist));
 	p->insert = list_insert;
 	p->mydelete = list_mydelete;
+	p->search = list_search;
 	
 	pmylist create_list = (pmylist) p;
 
