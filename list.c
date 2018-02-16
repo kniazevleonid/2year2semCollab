@@ -1,6 +1,6 @@
 #include "mylist.h"
 #include <stdlib.h>
-#include<stdio.h>
+#include <stdio.h>
 
 pbox create_list ()
 {
@@ -54,9 +54,9 @@ void list_insert(pbox p, data d)
         return;
 }
 
-void list_delete_element(pbox p, data d)
+void list_delete_element(pbox p, data d, int(*f)(void *, void *))
 {
-        pnode tmp = list_search(p, d);
+        pnode tmp = list_search(p, d, f);
         if(tmp == NULL)
         {
                 printf("There is no element with such data\n");
@@ -76,17 +76,17 @@ pnode list_search (pbox p, data d, int(*f)(void *, void *))
 {
         pmylist l = (pmylist)p;
         pnode tmp = l->head;
-	pnode temp = tmp;
+        pnode temp = tmp;
         while(tmp->next != temp)
         {
                 if (f(tmp->data, data))
-                        return tmp; 
+                        return tmp;
                 tmp = tmp->next;
         }
-	
-	if (f(tmp->data, data))
+
+        if (f(tmp->data, data))
                         return tmp;
-	
+
         return NULL;
 
 }
