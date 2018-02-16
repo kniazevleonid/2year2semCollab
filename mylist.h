@@ -21,4 +21,6 @@ pbox list_create();
 
 void list_mydelete(pbox p);
 
-pnode list_search (pbox p, data d);
+pnode list_search (pbox p, data d, int(*f)(void *, void *));
+
+void list_delete_element (pbox p, data d, int(*f)(void *, void *));
