@@ -31,7 +31,6 @@ void list_mydelete(pbox pp)
 	free(p);
 	return;
 }
-
 void list_insert(pbox p, data d)
 {
         pmylist l = (pmylist)p;
@@ -45,10 +44,24 @@ void list_insert(pbox p, data d)
         }
         else
         {
-                tmp->next = head;
+                tmp->next = l->head;
                 tmp->prev = (l->head)->prev;
                 ((l->head)->prev)->next = tmp;
                 (l->head)->prev = tmp;
         }
         return;
+}
+
+pnode list_search (pbox p, data d)
+{
+        pmylist l = (pmylist)p;
+        pnode tmp = l->head;
+        while(tmp != NULL)
+        {
+        //      if (f(tmp->data, data))
+        //              return tmp; 
+                tmp = tmp->next;
+        }
+        return NULL;
+
 }
