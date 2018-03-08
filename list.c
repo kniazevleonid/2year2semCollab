@@ -62,7 +62,8 @@ void list_insert(pbox p, data d)
 }
 
 void list_delete_element(pbox p, pentry el)
-{
+{ 
+	pmylist l = (pmylist)p;
         pnode tmp = (pnode)el;
         if(tmp == NULL)
         {
