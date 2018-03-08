@@ -27,7 +27,7 @@ void list_delete_element (pbox p, data d, int(*f)(void *, void *));
 
 pentry list_first(pbox p);
 
-pentry list_end(pbox p);
+pentry list_last(pbox p);
 
 pentry list_get_next(pbox p, pentry elem);
 
