@@ -75,7 +75,7 @@ void vector_insert(pbox p, data d)
 void vector_delete_element(pbox pp, pentry e)
 {
         pnode tmp = (pnode)e;
-	pmyvetor p = (pmyvector)pp;
+	pmyvector p = (pmyvector)pp;
         if(tmp == NULL)
         {
                 printf("There is no element with such pointer\n");
@@ -88,7 +88,7 @@ void vector_delete_element(pbox pp, pentry e)
 		int i = count;
 		for (i = count; i<finish; i++)
 		{
-		        temp = vec->head + i;
+		        temp = p->head + i;
                         temp->data = (temp + 1)->data;
 		}
 		
@@ -106,7 +106,7 @@ pentry vector_search (pbox p, data d, int(*f)(void *, void *))
 	
 	for (i = 0; i <= vec->end->num; i++)
 	{
-		if (f(vector_get_by_num(p, i)->data, d))
+		if (f(((pnode)vector_get_by_num(p, i))->data, d))
 		{
 			return vector_get_by_num(p, i);
 		{
@@ -117,14 +117,14 @@ pentry vector_search (pbox p, data d, int(*f)(void *, void *))
 
 pentry vector_first(pbox p)
 {
-    pmyvector vec = (pmyvectro)p;
-    return vec->head;
+    pmyvector vec = (pmyvector)p;
+    return (pentry)vec->head;
 }
 
 pentry vector_last(pbox p)
 {
     pmyvector vec = (pmyvector)p;
-    return vec->end;
+    return (pentry)vec->end;
 }
 
 pentry vector_get_next(pbox p, pentry elem)
@@ -138,7 +138,7 @@ pentry vector_get_next(pbox p, pentry elem)
 	return NULL;
     }	
 	
-    return (tmp + 1);
+    return (pentry)(tmp + 1);
 }
 
 pentry vector_get_prev(pbox p, pentry elem)
@@ -152,12 +152,12 @@ pentry vector_get_prev(pbox p, pentry elem)
         return NULL;
     }
 
-    return (tmp - 1);
+    return (pentry)(tmp - 1);
 }
 
 pentry vector_get_by_num(pbox p, int i)
 {
 	pmyvector vec = (pmyvector) p;
 
-	return (vec->head + i);
+	return (pentry)(vec->head + i);
 }
