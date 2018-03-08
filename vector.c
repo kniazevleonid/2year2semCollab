@@ -109,7 +109,7 @@ pentry vector_search (pbox p, data d, int(*f)(void *, void *))
 		if (f(((pnode)vector_get_by_num(p, i))->data, d))
 		{
 			return vector_get_by_num(p, i);
-		{
+		}
 	}
         return NULL;
 
