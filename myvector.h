@@ -27,7 +27,7 @@ void vector_delete_element (pbox p, data d, int(*f)(void *, void *));
 
 pentry vector_first(pbox p);
 
-pentry vector_end(pbox p);
+pentry vector_last(pbox p);
 
 pentry vector_get_next(pbox p, pentry elem);
 
