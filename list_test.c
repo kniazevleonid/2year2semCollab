@@ -1,8 +1,9 @@
 #include "mylist.h"
+//#include "myvector.h"
 
-#define CREATE
-#define INSERT
-#define SEARCH
+#define CREATE list_create
+#define INSERT insert
+#define SEARCH search
 #define DELETE_ELEMENT
 #define DELETE
 #define ENTRY
@@ -29,11 +30,12 @@ int main()
 
         a->INSERT(a, d);
 
-        a->INSERT(a, d+4);
+        a->INSERT(a, d+1);
 
         int tmp = 1;
         data temp = &tmp;
 
-        if ((a->SEARCH(a, temp, CmpInt))->data) ;
+        printf ("%d", &((a->SEARCH(a, temp, CmpInt))->data));
 
-        printf ("%d
+	return;
+}
