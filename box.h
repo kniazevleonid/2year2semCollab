@@ -12,7 +12,7 @@ pentry(*get_by_num)(struct box* p, int i);
 
 struct entry
 {
-
+    data data;
 }typedef entry, * pentry;
 
 struct box
