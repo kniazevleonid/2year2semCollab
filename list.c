@@ -10,7 +10,7 @@ pbox create_list ()
 	p->search = list_search;
 	p->delete_element = list_delete_element;
 	p->first = list_first;
-        p->end = list_end;
+        p->last = list_last;
         p->get_next = list_get_next;
         p->get_prev = list_get_prev;
 	
@@ -105,7 +105,7 @@ pentry list_first(pbox p)
     return l->head;
 }
 
-pentry list_end(pbox p)
+pentry list_last(pbox p)
 {
     pmylist l = (pmylist)p;
     return l->head;
