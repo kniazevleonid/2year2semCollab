@@ -1,4 +1,5 @@
 #include "mylist.h"
+#include<stdio.h>
 //#include "myvector.h"
 
 #define CREATE list_create
@@ -30,12 +31,13 @@ int main()
 
         a->INSERT(a, d);
 
-        a->INSERT(a, d+1);
-
+        a->INSERT(a, d+4);
+        
         int tmp = 1;
-        data temp = &tmp;
-
-        printf ("%d", &((a->SEARCH(a, temp, CmpInt))->data));
-
-	return;
+        data temp = &tmp; 
+        printf ("%d\n", *((int*)((a->get_next(a, a->first(a)))->data)));
+        
+        printf("%d\n", *((int*)((a->search(a, temp, CmpInt))->data)));
+       // a->mydelete(a);
+	return 0;
 }
