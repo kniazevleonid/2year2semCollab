@@ -23,7 +23,7 @@ void vector_mydelete(pbox p);
 
 pentry vector_search (pbox p, data d, int(*f)(void *, void *));
 
-void vector_delete_element (pbox p, data d, int(*f)(void *, void *));
+void vector_delete_element (pbox p, pentry de);
 
 pentry vector_first(pbox p);
 
