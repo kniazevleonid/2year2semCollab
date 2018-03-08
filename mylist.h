@@ -23,7 +23,7 @@ void list_mydelete(pbox p);
 
 pentry list_search (pbox p, data d, int(*f)(void *, void *));
 
-void list_delete_element (pbox p, pentry d, int(*f)(void *, void *));
+void list_delete_element (pbox p, pentry d);
 
 pentry list_first(pbox p);
 
