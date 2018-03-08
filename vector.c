@@ -10,7 +10,7 @@ pbox create_vector ()
 	p->search = vector_search;
 	p->delete_element = vector_delete_element;
 	p->first = vector_first;
-        p->end = vector_end;
+        p->last = vector_last;
         p->get_next = vector_get_next;
         p->get_prev = vector_get_prev;
 	
@@ -121,7 +121,7 @@ pentry vector_first(pbox p)
     return vec->head;
 }
 
-pentry vector_end(pbox p)
+pentry vector_last(pbox p)
 {
     pmyvector vec = (pmyvector)p;
     return vec->end;
