@@ -103,23 +103,23 @@ pentry list_search (pbox p, data d, int(*f)(void *, void *))
 pentry list_first(pbox p)
 {
     pmylist l = (pmylist)p;
-    return l->head;
+    return (pentry)l->head;
 }
 
 pentry list_last(pbox p)
 {
     pmylist l = (pmylist)p;
-    return l->head;
+    return (pentry)l->head;
 }
 
 pentry list_get_next(pbox p, pentry elem)
 {
     pnode tmp = (pnode)elem;
-    return tmp->next;
+    return (pentry)tmp->next;
 }
 
 pentry list_get_prev(pbox p, pentry elem)
 {
     pnode tmp = (pnode)elem;
-    return tmp->prev;
+    return (pentry)tmp->prev;
 }
