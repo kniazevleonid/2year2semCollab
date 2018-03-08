@@ -61,12 +61,12 @@ void list_insert(pbox p, data d)
         return;
 }
 
-void list_delete_element(pbox p, data d, int(*f)(void *, void *))
+void list_delete_element(pbox p, pentry el)
 {
-        pnode tmp = list_search(p, d, f);
+        pnode tmp = (pnode)el;
         if(tmp == NULL)
         {
-                printf("There is no element with such data\n");
+                printf("There is no element with such pointer\n");
         }
         else
         {
