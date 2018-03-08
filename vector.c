@@ -81,13 +81,14 @@ void vector_delete_element(pbox pp, pentry e)
                 printf("There is no element with such pointer\n");
         }
         else
-        {
+        { 
+		pnode temp;
 		int count = tmp->num;
 		int finish = p->end->num;
 		int i = count;
 		for (i = count; i<finish; i++)
 		{
-			pnode temp = vec->head + i;
+		        temp = vec->head + i;
                         temp->data = (temp + 1)->data;
 		}
 		
