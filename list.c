@@ -42,8 +42,7 @@ void list_mydelete(pbox pp)
 void list_insert(pbox p, data d)
 {
         pmylist l = (pmylist)p;
-        pentry temp = (pentry)malloc(sizeof(node));
-        pnode tmp = (pnode)temp;
+        pnode tmp = (pnode)malloc(sizeof(node));
         tmp->data = d;
         if(l->head == NULL)
         {
