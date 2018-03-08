@@ -17,7 +17,7 @@ struct mylist
 
 void list_insert(pbox p, data d);
 
-box list_create();
+pbox list_create();
 
 void list_mydelete(pbox p);
 
