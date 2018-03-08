@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-pbox create_list ()
+pbox list_create ()
 {
 	pbox p =(pbox)malloc(sizeof(mylist));
 	p->insert = list_insert;
