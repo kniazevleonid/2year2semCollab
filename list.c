@@ -88,13 +88,13 @@ pentry list_search (pbox p, data d, int(*f)(void *, void *))
         pnode temp = tmp;
         while(tmp->next != temp)
         {
-                if (f(tmp->data, data))
-                        return tmp;
+                if (f(tmp->data, d))
+                        return (pentry)tmp;
                 tmp = tmp->next;
         }
 
-        if (f(tmp->data, data))
-                        return tmp;
+        if (f(tmp->data, d))
+                        return (pentry)tmp;
 
         return NULL;
 
