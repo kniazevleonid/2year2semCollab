@@ -7,7 +7,8 @@ void(*delete_element)(struct box * p, data d, int(*f)(void *, void *));\
 pentry(*first)(struct box * p);\
 pentry(*end)(struct box * p);\
 pentry(*get_next)(struct box* p, pentry elem);\
-pentry(*get_prev)(struct box* p, pentry elem);
+pentry(*get_prev)(struct box* p, pentry elem);\
+pentry(*get_by_num)(struct box* p, int i);
 
 struct entry
 {
