@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-pbox create_vector ()
+pbox vector_create ()
 {
 	pbox p =(pbox)malloc(sizeof(myvector));
 	p->insert = vector_insert;
