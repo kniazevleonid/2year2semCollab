@@ -24,23 +24,22 @@ pbox list_create ()
 
 void list_mydelete(pbox pp)
 {
-        pmylist p = (pmylist) pp;
-        if(p == NULL)
-                return;
-        pnode tmp = p->head;
-        pnode last = p->head->prev;
-        pnode temp;
-        while (tmp != last)
-        {
-                temp = tmp;
-                tmp = tmp->next;
-                free(temp);
-        }
-        free (last);
-        free(p);
-        return;
+	pmylist p = (pmylist) pp;
+	if(p == NULL)
+		return;
+	pnode tmp = p->head;
+	pnode last = p->head->prev;
+	pnode temp;
+	while (tmp != last)
+	{
+		temp = tmp;
+		tmp = tmp->next;
+		free(temp);
+	}
+	free (last);
+	free(p);
+	return;
 }
-
 
 void list_insert(pbox p, data d)
 {
@@ -76,8 +75,10 @@ void list_delete_element(pbox p, pentry el)
         {
                 (tmp->prev)->next = tmp->next;
                 (tmp->next)->prev = tmp->prev;
-                tmp->next = NULL;
-                tmp->prev = NULL;
+		if(tmp == l->head)
+		{
+			l->head = l->head->next;
+		}
                 free(tmp);
                 l->count = l->count - 1;
         }
