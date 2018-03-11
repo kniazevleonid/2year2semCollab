@@ -59,7 +59,6 @@ void vector_insert(pbox p, data d)
 	{
 		int count = vec->end->num;
 		int size = vec->size;
-		printf("%d %d\n", count, size);
 		if (count == size - 1)
 		{
 			pnode t = (pnode)realloc(vec->head, sizeof(node)*2*vec->size);

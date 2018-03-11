@@ -41,7 +41,17 @@ int main()
 	printf("%d\n", *((int*)((a->get_by_num(a, 1))->data)));
 
 	a->delete_element(a, a->first(a));
+	a->delete_element(a, NULL);
 	printf("%d\n", *((int*)((a->get_prev(a, a->get_next(a, a->first(a))))->data)));
+	if (a->get_next(a, a->last(a)) != NULL)
+		printf("Wrong.");
+	else
+		printf("OK.");
+	if (a->get_prev(a, a->first(a)) != NULL)
+                printf("Wrong.");
+        else
+                printf("OK.");
 	a->mydelete(a);
+	a->mydelete(NULL);
 	return 0;
 }

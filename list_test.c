@@ -1,7 +1,5 @@
 #include "mylist.h"
 #include<stdio.h>
-//#include "myvector.h"
-
 int CmpInt(void * x, void * y)
 {
         int * a = (int *)x;
@@ -13,7 +11,7 @@ int CmpInt(void * x, void * y)
 
 int main()
 {
-        pbox a = CREATE();
+        pbox a = list_create();
 
         int mass[3];
         mass[0] = 0;
