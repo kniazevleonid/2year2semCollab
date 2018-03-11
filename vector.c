@@ -48,7 +48,7 @@ void vector_insert(pbox p, data d)
 	pmyvector vec = (pmyvector)p;
 	if(vec->head == NULL)
 	{
-		pnode tmp = (pnode)malloc(sizeof(node));
+		pvnode tmp = (pvnode)malloc(sizeof(vnode));
 		tmp->data = d;
 		tmp->num = 0;
 		vec->head = tmp;
@@ -61,7 +61,7 @@ void vector_insert(pbox p, data d)
 		int size = vec->size;
 		if (count == size - 1)
 		{
-			pnode t = (pnode)realloc(vec->head, sizeof(node)*2*vec->size);
+			pvnode t = (pvnode)realloc(vec->head, sizeof(vnode)*2*vec->size);
 			if (t==NULL)
 				return;
 			vec->head = t;
@@ -70,7 +70,7 @@ void vector_insert(pbox p, data d)
 		}
 
 
-		pnode tmp = ((pnode)vec->end) + 1;
+		pvnode tmp = ((pvnode)vec->end) + 1;
 		tmp->num = count + 1;
 		tmp->data = d;
 		vec->end = tmp;
@@ -80,7 +80,7 @@ void vector_insert(pbox p, data d)
 
 void vector_delete_element(pbox pp, pentry e)
 {
-	pnode tmp = (pnode)e;
+	pvnode tmp = (pvnode)e;
 	pmyvector p = (pmyvector)pp;
 	if(tmp == NULL)
 	{
@@ -88,7 +88,7 @@ void vector_delete_element(pbox pp, pentry e)
 	}
 	else
 	{ 
-		pnode temp;
+		pvnode temp;
 		int count = tmp->num;
 		int finish = p->end->num;
 		int i = count;
@@ -112,7 +112,7 @@ pentry vector_search (pbox p, data d, int(*f)(void *, void *))
 
 	for (i = 0; i <= vec->end->num; i++)
 	{
-		if (f(((pnode)vector_get_by_num(p, i))->data, d))
+		if (f(((pvnode)vector_get_by_num(p, i))->data, d))
 		{
 			return vector_get_by_num(p, i);
 		}
@@ -137,7 +137,7 @@ pentry vector_get_next(pbox p, pentry elem)
 {
 	pmyvector vec = (pmyvector)p;
 
-	pnode tmp = (pnode)elem;
+	pvnode tmp = (pvnode)elem;
 
 	if (tmp->num == vec->end->num)
 	{
@@ -151,7 +151,7 @@ pentry vector_get_prev(pbox p, pentry elem)
 { 
 	pmyvector vec = (pmyvector)p;
 
-	pnode tmp = (pnode)elem;
+	pvnode tmp = (pvnode)elem;
 
 	if (tmp->num == vec->head->num)
 	{
@@ -163,10 +163,6 @@ pentry vector_get_prev(pbox p, pentry elem)
 
 pentry vector_get_by_num(pbox p, int i)
 {
-	pmyvector vec = (pmyvector) p;
-	// if(i < vec->size && vec->head != NULL)
-	// { 
+	pmyvector vec = (pmyvector) p; 
 	return (pentry)(vec->head + i);
-	// }
-	// return NULL;
 }
