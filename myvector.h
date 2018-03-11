@@ -1,17 +1,17 @@
 #include "box.h"
 
-struct node
+struct vnode
 {
 	data data;
 	int num;
-} typedef node, * pnode;
+} typedef vnode, * pvnode;
 
 struct myvector
 {
 	BOX_DECL;
 
-	pnode head;
-	pnode end;
+	pvnode head;
+	pvnode end;
 	int size;
 }typedef myvector, * pmyvector;
 
