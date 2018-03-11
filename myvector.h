@@ -2,14 +2,14 @@
 
 struct node
 {
-    data data;
+	data data;
 	int num;
 } typedef node, * pnode;
 
 struct myvector
 {
 	BOX_DECL;
-	
+
 	pnode head;
 	pnode end;
 	int size;

@@ -1,6 +1,6 @@
 typedef void* data;
 #define BOX_DECL \
-void(*insert)(struct box * p, data d); \
+	void(*insert)(struct box * p, data d); \
 void(*mydelete)(struct box * p); \
 pentry(*search)(struct box * p, data d, int(*f)(void *, void *)); \
 void(*delete_element)(struct box * p, pentry d);\
@@ -12,11 +12,11 @@ pentry(*get_by_num)(struct box* p, int i);
 
 struct entry
 {
-    data data;
+	data data;
 }typedef entry, * pentry;
 
 struct box
 {
-    BOX_DECL
+	BOX_DECL
 }typedef box, * pbox;
 

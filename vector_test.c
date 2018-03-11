@@ -3,41 +3,45 @@
 
 int CmpInt(void * x, void * y)
 {
-        int * a = (int *)x;
-        int * b = (int *)y;
-        if (* a == * b)
-                return 1;
-        return 0;
+	int * a = (int *)x;
+	int * b = (int *)y;
+	if (* a == * b)
+		return 1;
+	return 0;
 }
 
 int main()
 {
-        pbox a = CREATE();
+	pbox a = vector_create();
 
-        int mass[3];
-        mass[0] = 0;
-        mass[1] = 1;
+	int mass[4];
+	mass[0] = 0;
+	mass[1] = 1;
 	mass[2] = 2;
+	mass[3] = 3;
 
-        data d = &mass[0];
+	data d = &mass[0];
 
-        a->insert(a, d);
+	a->insert(a, d);
 
-        a->insert(a, d+4);
+	a->insert(a, d+4);
 
 	a->insert(a, d+8);
-        
-        int tmp = 1;
-        data temp = &tmp; 
-        printf ("%d\n", *((int*)((a->get_next(a, a->first(a)))->data)));
-        
-        printf("%d\n", *((int*)((a->search(a, temp, CmpInt))->data)));
 
-	printf("%d\n", *((int*)((a->get_prev(a, a->last(a)))->data)));
+	a->insert(a, d + 12);
 
-        printf("%d\n", *((int*)((a->get_by_num(a, 2))->data)));
+	int tmp = 2;
+	data temp = &tmp; 
+	printf ("%d\n", *((int*)((a->first(a))->data)));
+
+	printf("%d\n", *((int*)((a->search(a, temp, CmpInt))->data)));
+
+	printf("%d\n", *((int*)((a->last(a))->data)));
+
+	printf("%d\n", *((int*)((a->get_by_num(a, 1))->data)));
 
 	a->delete_element(a, a->first(a));
-        a->mydelete(a);
+	printf("%d\n", *((int*)((a->get_prev(a, a->get_next(a, a->first(a))))->data)));
+	a->mydelete(a);
 	return 0;
 }
