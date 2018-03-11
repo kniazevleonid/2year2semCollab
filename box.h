@@ -1,3 +1,6 @@
+#ifndef BOX_H
+#define BOX_H
+
 typedef void* data;
 #define BOX_DECL \
 	void(*insert)(struct box * p, data d); \
@@ -20,3 +23,4 @@ struct box
 	BOX_DECL
 }typedef box, * pbox;
 
+#endif
