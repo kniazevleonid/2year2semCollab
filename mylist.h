@@ -32,3 +32,5 @@ pentry list_last(pbox p);
 pentry list_get_next(pbox p, pentry elem);
 
 pentry list_get_prev(pbox p, pentry elem); 
+
+void list_myswitch(pbox p, pentry elem1, pentry elem2);

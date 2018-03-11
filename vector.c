@@ -14,6 +14,8 @@ pbox vector_create ()
 	p->get_next = vector_get_next;
 	p->get_prev = vector_get_prev;
 	p->get_by_num = vector_get_by_num;
+	p->myswitch = vector_myswitch;
+
 
 	pmyvector vec = (pmyvector) p;
 
@@ -165,4 +167,18 @@ pentry vector_get_by_num(pbox p, int i)
 {
 	pmyvector vec = (pmyvector) p; 
 	return (pentry)(vec->head + i);
+}
+
+void vector_myswitch(pbox pp, pentry elem1, pentry elem2)
+{
+	pmyvector p = (pmyvector)pp;
+	pvnode el1 = (pvnode)elem1;
+	pvnode el2 = (pvnode)elem2;
+
+	data temp = el1->data;
+
+	el1->data = el2->data;
+	el2->data = temp;
+
+	return;
 }

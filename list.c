@@ -13,6 +13,7 @@ pbox list_create ()
         p->last = list_last;
         p->get_next = list_get_next;
         p->get_prev = list_get_prev;
+	p->myswitch = list_myswitch;	
 	
         pmylist create_list = (pmylist) p;
 
@@ -113,7 +114,7 @@ pentry list_first(pbox p)
 pentry list_last(pbox p)
 {
     pmylist l = (pmylist)p;
-    return (pentry)l->head;
+    return (pentry)l->head->prev;
 }
 
 pentry list_get_next(pbox p, pentry elem)
@@ -126,4 +127,18 @@ pentry list_get_prev(pbox p, pentry elem)
 {
     pnode tmp = (pnode)elem;
     return (pentry)tmp->prev;
+}
+
+void list_myswitch(pbox pp, pentry elem1, pentry elem2)
+{
+	pmylist p = (pmylist)p;
+	pnode tmp1 = (pnode)elem1;
+	pnode tmp2 = (pnode)elem2;
+	
+	
+	data temp = tmp1->data;
+	tmp1->data = tmp2->data;
+	tmp2->data = temp;
+
+	return;
 }

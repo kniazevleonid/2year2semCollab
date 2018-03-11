@@ -34,3 +34,5 @@ pentry vector_get_next(pbox p, pentry elem);
 pentry vector_get_prev(pbox p, pentry elem);
 
 pentry vector_get_by_num(pbox p, int num);
+
+void vector_myswitch(pbox p, pentry elem1, pentry elem2);
