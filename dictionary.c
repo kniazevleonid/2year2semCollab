@@ -6,6 +6,8 @@
 #include<ctype.h>
 #include<string.h>
 
+void sort(pbox p, int(*f)(void *, void *));
+
 int MoreString (void * x, void * y)
 {
         char * a = (char *)x;
