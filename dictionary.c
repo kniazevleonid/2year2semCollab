@@ -17,7 +17,7 @@ int MoreString (void * x, void * y)
 
 int main()
 {
-	pbox a = vector_create();
+	pbox a = CREATE();
         char current[1000][1000];
         int j = 0;
         for(j = 0; j < 1000; ++j)
