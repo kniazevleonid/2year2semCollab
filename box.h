@@ -17,7 +17,7 @@ void(*myswitch)(struct box * p, pentry elem1, pentry elem2);
 
 struct entry
 {
-	data data;
+	::data data;
 }typedef entry, * pentry;
 
 struct box
