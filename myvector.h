@@ -2,7 +2,7 @@
 
 struct vnode
 {
-	data data;
+	::data data;
 	int num;
 } typedef vnode, * pvnode;
 
