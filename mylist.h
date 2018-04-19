@@ -2,7 +2,7 @@
 
 struct node
 {
-    data data;
+    ::data data;
     struct node * next;
     struct node * prev;
 } typedef node, * pnode;
