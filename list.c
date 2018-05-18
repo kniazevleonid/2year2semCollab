@@ -27,7 +27,12 @@ void list_mydelete(pbox pp)
 {
 	pmylist p = (pmylist) pp;
 	if(p == NULL)
-		return;
+		{return;}
+        if(p->head == NULL)
+        {
+            free(p);
+            return;
+        }
 	pnode tmp = p->head;
 	pnode last = p->head->prev;
 	pnode temp;
@@ -114,17 +119,29 @@ pentry list_first(pbox p)
 pentry list_last(pbox p)
 {
     pmylist l = (pmylist)p;
+    if(l->head == NULL)
+    {
+        return NULL;
+    }
     return (pentry)l->head->prev;
 }
 
 pentry list_get_next(pbox p, pentry elem)
 {
+    if(elem == p->last(p))
+    {
+        return NULL;
+    }
     pnode tmp = (pnode)elem;
     return (pentry)tmp->next;
 }
 
 pentry list_get_prev(pbox p, pentry elem)
 {
+    if(elem == p->first(p))
+    {
+        return NULL;
+    }
     pnode tmp = (pnode)elem;
     return (pentry)tmp->prev;
 }
